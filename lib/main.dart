@@ -1,7 +1,9 @@
+import 'package:f_test03/providers/changenotifierprovider_all_model.dart';
 import 'package:f_test03/providers/changenotifierprovider_model.dart';
 import 'package:f_test03/providers/futureprovider_model.dart';
 import 'package:f_test03/providers/provider_model.dart';
 import 'package:f_test03/providers/streamprovider_model.dart';
+import 'package:f_test03/screens/changenotifierprovider_all_screen.dart';
 import 'package:f_test03/screens/changenotifierprovider_screen.dart';
 import 'package:f_test03/screens/futureprovider2_screen.dart';
 import 'package:f_test03/screens/futureprovider_screen.dart';
@@ -27,6 +29,15 @@ class MyApp extends StatelessWidget {
             create: (context) => ChangeNotifierModel(),
             update: (context, provModel, cnModel) {
               cnModel!.provModel = provModel;
+              return cnModel;
+            }),
+        ChangeNotifierProxyProvider3<ProviderModel, FutureProviderModel,
+                StreamProviderModel, ChangeNotifierModelAll>(
+            create: (context) => ChangeNotifierModelAll(),
+            update: (context, provModel, fModel, sModel, cnModel) {
+              cnModel!.provModel = provModel;
+              cnModel.fModel = fModel;
+              cnModel.sModel = sModel;
               return cnModel;
             }),
         ChangeNotifierProvider<ValueNotifier<int>>(
@@ -136,6 +147,17 @@ class MyHomePage extends StatelessWidget {
                 },
                 child: const Text(
                   'Stream Provider',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const ChangeNotifierModelAllScreen();
+                  }));
+                },
+                child: const Text(
+                  'F + Stream All Provider',
                   style: TextStyle(fontSize: 20),
                 ),
               ),
