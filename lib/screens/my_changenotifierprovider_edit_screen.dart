@@ -21,7 +21,7 @@ class MyChangeNotifierProviderEditScreen extends StatelessWidget {
       body: Center(
         child: Consumer<MyChangeNotifierProviderModel>(
           builder: (context, myCnprovider, child) {
-            return Text('data : ${myCnprovider.myItems[choiceItem]}');
+            return Text('data : ${myCnprovider.myItems[choiceItem].mData}');
           },
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:f_test03/datas/my_data.dart';
 import 'package:f_test03/providers/my_changenotifier_provider.dart';
 import 'package:f_test03/screens/my_changenotifierprovider_edit_screen.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class MyChangeNotifierProviderScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: GestureDetector(
-                    child: Text(myCnprovider.myItems[index]),
+                    child: Text(myCnprovider.myItems[index].mData),
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -51,9 +52,18 @@ class MyChangeNotifierProviderScreen extends StatelessWidget {
                     icon: const Icon(Icons.delete),
                   ),
                   trailing: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border_outlined),
-                  ),
+                      onPressed: () {
+                        myCnprovider.favChange(index);
+                        // myCnprovider.myItems[index].isFave =
+                        //     !myCnprovider.myItems[index].isFave;
+                        // print(myCnprovider.myItems[index].isFave);
+                      },
+                      icon: myCnprovider.myItems[index].isFave
+                          ? const Icon(
+                              Icons.favorite_border,
+                              color: Colors.red,
+                            )
+                          : const Icon(Icons.favorite_border_outlined)),
                 );
               },
               itemCount: myCnprovider.myItems.length,
@@ -65,7 +75,9 @@ class MyChangeNotifierProviderScreen extends StatelessWidget {
         onPressed: () {
           final myCnModel = Provider.of<MyChangeNotifierProviderModel>(context,
               listen: false);
-          myCnModel.addItem("Item ${++count}");
+          myCnModel.addItem(
+            MyData(mData: "Item ${++count}"),
+          );
         },
         child: const Icon(Icons.add),
       ),
