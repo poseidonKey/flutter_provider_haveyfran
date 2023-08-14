@@ -1,12 +1,14 @@
 import 'package:f_test03/providers/changenotifierprovider_all_model.dart';
 import 'package:f_test03/providers/changenotifierprovider_model.dart';
 import 'package:f_test03/providers/futureprovider_model.dart';
+import 'package:f_test03/providers/my_changenotifier_provider.dart';
 import 'package:f_test03/providers/provider_model.dart';
 import 'package:f_test03/providers/streamprovider_model.dart';
 import 'package:f_test03/screens/changenotifierprovider_all_screen.dart';
 import 'package:f_test03/screens/changenotifierprovider_screen.dart';
 import 'package:f_test03/screens/futureprovider2_screen.dart';
 import 'package:f_test03/screens/futureprovider_screen.dart';
+import 'package:f_test03/screens/my_changenotifierprovider_screen.dart';
 import 'package:f_test03/screens/provider_screen.dart';
 import 'package:f_test03/screens/streamprovider_screen.dart';
 import 'package:f_test03/screens/value_notifier_screen.dart';
@@ -42,6 +44,9 @@ class MyApp extends StatelessWidget {
             }),
         ChangeNotifierProvider<ValueNotifier<int>>(
           create: (_) => ValueNotifier(0),
+        ),
+        ChangeNotifierProvider<MyChangeNotifierProviderModel>(
+          create: (_) => MyChangeNotifierProviderModel(),
         ),
         FutureProvider<Map<String, int>>(
             create: (_) async {
@@ -158,6 +163,17 @@ class MyHomePage extends StatelessWidget {
                 },
                 child: const Text(
                   'F + Stream All Provider',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const MyChangeNotifierProviderScreen();
+                  }));
+                },
+                child: const Text(
+                  'My Notifier Provider',
                   style: TextStyle(fontSize: 20),
                 ),
               ),
