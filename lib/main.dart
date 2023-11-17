@@ -100,6 +100,9 @@ class MyHomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 20),
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -110,6 +113,9 @@ class MyHomePage extends StatelessWidget {
                   'ChangeNotifier Provider',
                   style: TextStyle(fontSize: 20),
                 ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               ElevatedButton(
                 onPressed: () {
@@ -122,6 +128,9 @@ class MyHomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 20),
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -132,6 +141,9 @@ class MyHomePage extends StatelessWidget {
                   'Future Provider',
                   style: TextStyle(fontSize: 20),
                 ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               ElevatedButton(
                 onPressed: () {
@@ -144,6 +156,9 @@ class MyHomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 20),
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -154,6 +169,9 @@ class MyHomePage extends StatelessWidget {
                   'Stream Provider',
                   style: TextStyle(fontSize: 20),
                 ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               ElevatedButton(
                 onPressed: () {
@@ -166,6 +184,9 @@ class MyHomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 20),
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -176,6 +197,9 @@ class MyHomePage extends StatelessWidget {
                   'My Notifier Provider',
                   style: TextStyle(fontSize: 20),
                 ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
             ],
           ),
